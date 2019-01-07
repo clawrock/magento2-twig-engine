@@ -1,5 +1,5 @@
 {
-    "name": "clawrock/module-twig-engine",
+    "name": "clawrock/magento2-twig-engine",
     "description": "Magento 2 Twig Template Engine",
     "type": "magento2-module",
     "license": [
@@ -8,6 +8,7 @@
     ],
     "require": {
         "magento/framework": "~101.0|~102.0",
+        "magento/module-store": "~100.2|~101.0",
         "twig/twig": "^2.6"
     },
     "require-dev": {
