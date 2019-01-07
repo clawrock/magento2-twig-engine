@@ -1,3 +1,8 @@
+[![Packagist](https://img.shields.io/packagist/v/clawrock/magento2-twig-engine.svg)](https://packagist.org/packages/clawrock/magento2-twig-engine)
+[![Packagist](https://img.shields.io/packagist/dt/clawrock/magento2-twig-engine.svg)](https://packagist.org/packages/clawrock/magento2-twig-engine)
+[![Build Status](https://travis-ci.org/clawrock/magento2-twig-engine.svg?branch=master)](https://travis-ci.org/clawrock/magento2-twig-engine)
+[![Coverage Status](https://coveralls.io/repos/github/clawrock/magento2-twig-engine/badge.svg)](https://coveralls.io/github/clawrock/magento2-twig-engine)
+
 # Magento 2 - Twig Template Engine
 Module implementing Twig as Magento 2 template engine. It works with default .phtml templates as fallback.
 
