@@ -51,8 +51,10 @@ class Resolver
             return $value !== null;
         });
 
-        ['dirname' => $dirname, 'filename' => $filename] = $this->ioFile->getPathInfo($params['file']);
-        $file = $dirname === '.' ? $filename : $dirname . DIRECTORY_SEPARATOR . $filename;
+        $pathInfo = $this->ioFile->getPathInfo($params['file']);
+        $file = $pathInfo['dirname'] === '.'
+            ? $pathInfo['filename']
+            : $pathInfo['dirname'] . DIRECTORY_SEPARATOR . $pathInfo['filename'];
 
         foreach ($this->rulePool->getRule(RulePool::TYPE_TEMPLATE_FILE)->getPatternDirs($params) as $dir) {
             foreach (self::TEMPLATE_EXTENSIONS as $ext) {
