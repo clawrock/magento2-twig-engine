@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<twig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:ClawRock_TwigEngine:etc/twig.xsd">
+    <extensions>
+        <extension>Twig_Extension_Debug</extension>
+        <extension>ClawRock\TwigEngine\Twig\Extension\MagentoExtension</extension>
+    </extensions>
+</twig>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<phpunit bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="ClawRock_TwigEngine module">
+            <directory>Test/Unit</directory>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">Model</directory>
+            <directory suffix=".php">Plugin</directory>
+            <directory suffix=".php">Twig</directory>
+            <directory suffix=".php">View</directory>
+            <exclude>
+                <directory>Test</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+</phpunit>

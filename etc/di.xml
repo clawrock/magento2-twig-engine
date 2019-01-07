@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Framework\View\TemplateEngineFactory">
+        <arguments>
+            <argument name="engines" xsi:type="array">
+                <item name="twig" xsi:type="string">ClawRock\TwigEngine\View\TemplateEngine\Twig</item>
+            </argument>
+        </arguments>
+    </type>
+    <virtualType name="ClawRock\TwigEngine\Model\Config\Reader" type="Magento\Framework\Config\Reader\Filesystem">
+        <arguments>
+            <argument name="converter" xsi:type="object">ClawRock\TwigEngine\Model\Config\Converter</argument>
+            <argument name="schemaLocator" xsi:type="object">ClawRock\TwigEngine\Model\Config\SchemaLocator</argument>
+            <argument name="fileName" xsi:type="string">twig.xml</argument>
+        </arguments>
+    </virtualType>
+    <type name="ClawRock\TwigEngine\Model\Config\Data">
+        <arguments>
+            <argument name="reader" xsi:type="object">ClawRock\TwigEngine\Model\Config\Reader</argument>
+            <argument name="cacheId" xsi:type="string">clawrock_twig_engine_configuration_cache</argument>
+        </arguments>
+    </type>
+    <type name="Magento\Framework\View\Design\FileResolution\Fallback\Resolver\Simple">
+        <plugin name="ClawRock_TwigEngine::template_resolver_plugin" type="ClawRock\TwigEngine\Plugin\View\Design\FileResolution\Fallback\Resolver\SimplePlugin"/>
+    </type>
+</config>

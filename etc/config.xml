@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <twig>
+            <environment>
+                <!-- Reference: https://twig.symfony.com/doc/2.x/api.html#environment-options -->
+                <debug>1</debug>
+                <charset>UTF-8</charset>
+                <base_template_class>Twig_Template</base_template_class>
+                <cache>0</cache>
+                <auto_reload>1</auto_reload>
+                <strict_variables>1</strict_variables>
+                <autoescape>html</autoescape>
+                <optimizations>-1</optimizations>
+            </environment>
+            <template>
+                <auto_resolve>1</auto_resolve>
+            </template>
+        </twig>
+    </default>
+</config>
