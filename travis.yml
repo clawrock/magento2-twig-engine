@@ -1,0 +1,24 @@
+language: php
+
+php:
+  - 7.0
+  - 7.1
+  - 7.2
+
+install:
+  - echo "{\"http-basic\":{\"repo.magento.com\":{\"username\":\"${MAGENTO_USERNAME}\",\"password\":\"${MAGENTO_PASSWORD}\"}}}" > auth.json
+  - composer install --prefer-dist
+
+script:
+  - php vendor/bin/phpcs --standard=PSR2 Model Plugin Test Twig View
+  - php vendor/bin/phpmd Model,Plugin,Twig,View text phpmd.xml
+  - php vendor/bin/phpcpd  Model Plugin Twig View
+  - php vendor/bin/phpunit --coverage-clover build/logs/clover.xml
+
+after_script:
+  - php vendor/bin/php-coveralls
+
+env:
+  global:
+    - secure: "veEILvIqkK6cYhchEFuq3DujfRfyx1JKe/7WxcOVJs1xVfj++yFIHMyQPer6H+ZkKQjpsRcp8m/VvjZvot7oVnW9oet2IbjoTWh0xYBKoIJpYemPyQc0ROcIvSf8R5Q0LbjKPS2Tfj1kzBohQxr91YnK9V6wLJDl6d4zjKN6kpXyGx/W/tWcAzIiUj3hEjjtp2/sHiOyG/1aaJFnD5OjlAZ+ZtpjSKq6xIySpsuApuOP0YwBR3JLvBMTVEha4XHEf2rNN9iYdGqod8CPY1ciLGS+DJ8yBZMcwYL38VTBfy2HxbOnbCgQV2j4aJmQPSk3U3P1t6w3mnTKGRr7W7q8YlZHs1YRnPXIDl0WeQmR/tNEL3LZJdtFtWA1T8WxncE8YXccvWitfC8fjXqQ1tAluzzxlhonjSaFjK112DI4xBbWtFJu9ZmSfSyNK3T1PMrkVR9ePjIskHg79Ubur5x1y0g3YA30p2tY/5lEPKjdYffLS4j8ECkGHPx/JlIQlqy979W+pQMPOErbkhocDYjTHun17g+pvQa5y3iJ925VwbfHuvvYlh9MFsb55Gt9XJYbNcMh0Rq0d9ZIRXAdIxwvJK4BtDCXnwKZe+IGiKfGVJgwz6t/BeK3vinzzTYmwKzHmguRx4sZ0wUIiQzeo/FntuPiHwj3Yxs6dFddG4/K67c="
+    - secure: "xMKhabH8MY6GgQZ4N6xVi4HPgM1H9h6fz5yUiNnvgG17D4Kz6u62NX/zK8G5UBifMiJ88M/HxaIq7DAVCGxE40y1akL7slltYnHb9vOpuABrAiRCJHWzGtOX651r6MQVgkfPxZfH7ooUZjk6PuVJiGM7OPhHp8PsW53bAO6I4BDl091zGbrGCvIbUjRjhliwHGwz99qedzLRFpAthXLgvm0MEO43mFSCms22Z+i23u0mBtvd5cl4nUWVUivA4LM8KAswEKtjqKE9RgpN6C8hd0zYVy6FQjpINUA6RdOttLBm4g2WQ5NPejZvdWUmiqJ7iCUXGMhV4qQE1SEROiKgk94x5D78k9pXBqbNUgHbfs2a+O4uFvrdLNn3lQTOLEx859yDg4zFGCtc7ot1J7DAKr4pF98Ttke5qyt8pB/Vyh4jb872hOblA1iD9Ej7lM4gR6U+uI9LvKyh4vvCrkRWpTpBE9FboDQ0bfw0+f2/rAu4so1Z8oen7KS5amjEQMTtWDlTD73U0AD+OvrWT9J7Y/VZwUOIGcsrjHgVzsP25fbuqe0M3M/M5PJ/lSsLefm/VxwblhZpIz1zUlmDeJzQbypnzQnzhEk88qdXqJUY9QH5QqDanwO/kBABzGn0XLS0+SDECgUGDwWlol+32mxBSaXGdf5Xr1NKH9f9TPIluhk="
