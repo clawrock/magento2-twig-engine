@@ -6,6 +6,9 @@ use Magento\Framework\View\Design\Fallback\RulePool;
 use Magento\Framework\View\Design\FileResolution\Fallback\Resolver\Simple;
 use Magento\Framework\View\Design\ThemeInterface;
 
+/**
+ * @SuppressWarnings(PHPMD.UnusedFormalParameter)
+ */
 class SimplePlugin
 {
     /**
